@@ -1,7 +1,7 @@
 from scapy.all import sniff
 
 # 탐지할 C2 서버 목록
-C2_IPS = ["192.168.1.10", "45.83.55.67"]
+C2_IPS = ["", ""]
 
 # 패킷 캡처 후 분석
 def packet_callback(packet):
