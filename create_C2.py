@@ -2,7 +2,7 @@ import socket
 
 # C2 서버 설정
 HOST = "0.0.0.0"  # 모든 IP에서 연결 가능
-PORT =         # 사용할 포트
+PORT = 5050        # 사용할 포트
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((HOST, PORT))
