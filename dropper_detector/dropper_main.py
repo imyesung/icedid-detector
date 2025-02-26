@@ -2,9 +2,9 @@ import os
 import sys
 import ast
 import json
-from detection import SignatureDetector
-from behavior import BehaviorAnalyzer
-from network import NetworkMonitor
+from static_hash_detection import SignatureDetector
+from file_behavior_analysis import BehaviorAnalyzer
+from network_anomaly_detector import NetworkMonitor
 
 
 class AdvancedMalwareDetector:
@@ -62,7 +62,7 @@ class AdvancedMalwareDetector:
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("[!] 사용법: python main.py <파일_경로>")
+        print("[!] 사용법: python dropper_main.py <파일_경로>")
         sys.exit(1)
     detector = AdvancedMalwareDetector()
     result = detector.analyze(sys.argv[1])
