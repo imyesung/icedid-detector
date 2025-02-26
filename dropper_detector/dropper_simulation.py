@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-test_dropper.py - 드로퍼를 시뮬레이션하는 PoC 코드
+dropper_simulation.py - 드로퍼를 시뮬레이션하는 PoC 코드
 """
 
 import os
