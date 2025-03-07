@@ -4,7 +4,7 @@
   "version": "1.0",
   "description": "Detects Emotet, SocGholish, and IcedID malware",
   "permissions": ["declarativeNetRequest", "storage", "activeTab"],
-  "host_permissions": ["<all_urls>"],
+  "host_permissions": ["<all_urls>", "http://127.0.0.1:5000/*"],
   "background": {
     "service_worker": "background.js"
   },
