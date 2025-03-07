@@ -1,44 +1,28 @@
-# app.py
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import hashlib
+from engine import MalwareDetectionEngine
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for Chrome extension integration
-
-
-# Simple IcedID detection function (placeholder)
-def detect_icedid(content):
-    # Basic detection logic - to be enhanced
-    suspicious_patterns = [
-        "IcedID signature",
-        "BokBot signature",
-        # Add more signatures
-    ]
-
-    for pattern in suspicious_patterns:
-        if pattern.lower() in content.lower():
-            return True
-    return False
-
+CORS(app)  # Chrome 확장프로그램 통합을 위한 CORS 활성화
+scanner_engine = MalwareDetectionEngine(config_path="../config/rules.json")
 
 @app.route('/scan', methods=['POST'])
 def scan():
-    data = request.json
+    """
+    멀웨어 탐지 엔드포인트
+    
+    요청 형식:
+    {
+        "content": "검사할 컨텐츠",
+        "url": "검사할 URL" (선택사항)
+    }
+    """
+    data = request.json or {}
     content = data.get('content', '')
     url = data.get('url', '')
 
-    # Perform detection
-    is_malicious = detect_icedid(content)
-
-    result = {
-        "malware_detected": is_malicious,
-        "malware_type": "IcedID" if is_malicious else None,
-        "description": "Banking trojan detected" if is_malicious else "No malware detected"
-    }
-
-    return jsonify(result)
-
+    results = scanner_engine.run_detection(content, url)
+    return jsonify(results)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
