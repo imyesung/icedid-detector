@@ -1,0 +1,31 @@
+{
+  "icedid": {
+    "url_patterns": [
+      "hxxps?:\\/\\/.*\\.php\\?[a-z0-9]{20,}=",
+      "\\/[a-zA-Z0-9]{4,6}\\/[a-zA-Z0-9]{20,}\\.php"
+    ],
+    "script_patterns": [
+      "document\\.write\\(unescape\\(.{10,200}%u9090",
+      "eval\\(decodeURIComponent\\(atob\\("
+    ],
+    "content_keywords": [
+      "IcedID",
+      "BokBot",
+      "Terdot",
+      "document.location.replace(window.atob(",
+      "10px top:1000px"
+    ]
+  },
+  "emotet": {
+    "url_patterns": [
+      "(?i)emotet_url\\.php"
+    ],
+    "script_patterns": [
+      "(?i)emotet_script_pattern"
+    ],
+    "content_keywords": [
+      "Emotet",
+      "Heodo"
+    ]
+  }
+}
